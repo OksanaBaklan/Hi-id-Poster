@@ -1,0 +1,908 @@
+    <style>
+      #poster-background {
+        width: 1122px;
+        height: 793px;
+        background: url("http://newhiid.local/wp-content/uploads/2023/10/Ellipse-31-Poster.png")
+            no-repeat top right,
+          url("http://newhiid.local/wp-content/uploads/2023/10/Ellipse-30-Poster.png")
+            no-repeat bottom left;
+        margin: 0 auto;
+        position: relative;
+        background-size: 1122px 793px; /* 2970px / 2.646 and 2150px / 2.646 */
+      }
+      .poster_title {
+        position: absolute;
+        top: 7.56px; /* 20px / 2.65 */
+        left: 12.47px; /* 33px / 2.65 */
+        display: flex;
+        align-items: center;
+      }
+
+      .poster_title img {
+        width: 135.73px; /* 359px / 2.646 */
+        height: 139.21px; /* 368.19px / 2.646 */
+      }
+
+      .poster_title h2 {
+        font-family: "syne-v16-latin-600ttf", Helvetica, Arial, Lucida,
+          sans-serif;
+        font-size: 31.03px; /* 82px / 2.646 */
+        font-weight: 600; /* 600 / 2.646 */
+        line-height: 38.91px; /* 103px / 2.646 */
+        letter-spacing: 0em;
+        text-align: left;
+        color: rgba(255, 107, 85, 1);
+      }
+
+      .container1 {
+        position: absolute;
+        top: 165px; /* 438px / 2.65 and rounded */
+        left: 22px; /* 59px / 2.65 and rounded */
+        background: rgba(255, 255, 255, 0.6);
+        max-width: 297px; /* 784px / 2.65 and rounded */
+        height: 319px; /* 843px / 2.65 and rounded */
+        padding: 13px 18px; /* 36px / 2.65 and rounded, 48px / 2.65 and rounded */
+        border-radius: 15px; /* 40px / 2.65 and rounded */
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+      }
+
+      .absolute_number {
+        position: absolute;
+        right: 37px; /* 100px / 2.65 and rounded */
+        top: -57px; /* 150px / 2.65 and rounded */
+        font-family: "syne-v16-latin-600ttf", Helvetica, Arial, Lucida,
+          sans-serif;
+        font-size: 83px; /* 220px / 2.65 and rounded */
+        font-weight: 500; /* 500 / 2.65 and rounded */
+        line-height: 108px; /* 286px / 2.65 and rounded */
+        letter-spacing: 0em;
+        text-align: left;
+        color: rgba(255, 107, 85, 1);
+      }
+
+      .card_title {
+        color: rgba(0, 0, 0, 1);
+        font-weight: 600; /* 600 / 2.65 and rounded */
+        font-size: 12px; /* 32px / 2.65 and rounded */
+      }
+
+      .card-container {
+        list-style-type: none;
+        padding: 0;
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+      }
+
+      .card-container div {
+        margin-bottom: 6px; /* 16px / 2.65 and rounded */
+        display: flex;
+      }
+
+      .card-container .card {
+        margin-right: 6px; /* 16px / 2.65 and rounded */
+        width: 83px; /* 219px / 2.65 and rounded */
+        height: 87px; /* 230px / 2.65 and rounded */
+        border-radius: 9px; /* 24px / 2.65 and rounded */
+        display: grid;
+        align-content: space-between;
+        background: rgba(255, 255, 255, 1);
+      }
+
+      .card_svg {
+        margin: 9px;
+        width: 18px; /* 48px / 2.65 = 18.113207547 */
+        height: 18px; /* 48px / 2.65 = 18.113207547 */
+        padding: 4px;
+        background-color: rgba(0, 0, 255, 0.1);
+        border-radius: 50%; /* Rounded to the nearest integer, approximately 50% of the reduced width (48px / 2.65) */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .card_svg img {
+        width: 8px; /* Rounded from 22px / 2.65 */
+        height: 7px; /* Rounded from 18px / 2.65 */
+      }
+
+      .card_details {
+        margin: 9px; /* Rounded from 24px / 2.65 */
+        display: flex;
+        flex-direction: column;
+      }
+
+      .detail_title {
+        color: rgba(0, 0, 255, 1);
+        font-family: "syne-v16-latin-600ttf", Helvetica, Arial, Lucida,
+          sans-serif;
+        font-size: 6px; /* Rounded from 16px / 2.65 */
+        font-weight: 600; /* Rounded from 600 / 2.65 */
+        line-height: 7px; /* Rounded from 18px / 2.65 */
+        margin-bottom: 3px; /* Rounded from 8px / 2.65 */
+      }
+
+      .detail_description {
+        font-size: 6px; /* Rounded from 16px / 2.65 */
+        font-weight: 600; /* Rounded from 600 / 2.65 */
+        line-height: 7px; /* Rounded from 18px / 2.65 */
+        font-family: "syne-v16-latin-600ttf", Helvetica, Arial, Lucida,
+          sans-serif;
+      }
+
+      .card3-container {
+        list-style-type: none;
+        padding: 0;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .card3-container .card:first-child {
+        width: 119px; /* Rounded from 315px / 2.65 */
+        height: auto;
+        font-size: 6px; /* Rounded from 16px / 2.65 */
+        padding-top: 14px; /* Rounded from 36px / 2.65 */
+      }
+
+      .card3-container .card:last-child {
+        width: 136px; /* Rounded from 360px / 2.65 */
+        height: auto;
+        font-size: 6px; /* Rounded from 16px / 2.65 */
+        padding-top: 14px; /* Rounded from 36px / 2.65 */
+      }
+
+      .card3-container .card .title {
+        font-family: "syne-v16-latin-600ttf", Helvetica, Arial, Lucida,
+          sans-serif;
+        font-size: 9px; /* Rounded from 24px / 2.65 */
+        font-weight: 600; /* Rounded from 600 / 2.65 */
+        line-height: 11px; /* Rounded from 31px / 2.65 */
+      }
+
+      .card3-container .card .description {
+        font-family: Inter;
+        font-size: 6px; /* Rounded from 16px / 2.65 */
+        font-weight: 400; /* Rounded from 400 / 2.65 */
+        line-height: 8px; /* Rounded from 22px / 2.65 */
+        letter-spacing: 0.0075em; /* Rounded from 0.02em / 2.65 */
+      }
+
+      .container2 {
+        background: rgba(255, 255, 255, 0.6);
+        max-width: 362px; /* Rounded from 956px / 2.65 */
+        height: 311px; /* Rounded from 820px / 2.65 */
+        border-radius: 15px; /* Rounded from 40px / 2.65 */
+        position: absolute;
+        top: 39px; /* Rounded from 105px / 2.65 */
+        left: 350px; /* Rounded from 925px / 2.65 */
+        display: flex;
+        flex-direction: column;
+        padding: 13px 18px; /* Rounded from 36px / 2.65 and 48px / 2.65 */
+      }
+
+      div {
+        box-sizing: border-box;
+      }
+
+      .poster_title1 {
+        font-family: "syne-v16-latin-600ttf", Helvetica, Arial, Lucida,
+          sans-serif;
+        font-size: 12px; /* Rounded from 32px / 2.65 */
+        font-weight: 600; /* Rounded from 600 / 2.65 */
+        line-height: 16px; /* Rounded from 42px / 2.65 */
+        letter-spacing: 0em;
+        text-align: left;
+      }
+
+      .columns {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .container2 .column1 {
+        display: flex;
+        justify-content: flex-start;
+        flex-direction: column;
+        width: 45%; /* Rounded from 45% */
+      }
+
+      .column1 .block1 {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .column1 .subtitle {
+        font-family: "syne-v16-latin-600ttf", Helvetica, Arial, Lucida,
+          sans-serif;
+        font-size: 6px; /* Rounded from 16px / 2.65 */
+        font-weight: 600; /* Rounded from 600 / 2.65 */
+        line-height: 7px; /* Rounded from 18px / 2.65 */
+        letter-spacing: 0em;
+        text-align: left;
+        color: rgba(0, 0, 255, 1);
+      }
+
+      .container2 .column2 {
+        width: 45%; /* Rounded from 45% */
+      }
+
+      .block {
+        margin-bottom: 21px; /* Rounded from 56px / 2.65 */
+      }
+
+      ul {
+        margin: 0;
+        padding: 0;
+      }
+
+      .text {
+        font-family: Inter;
+        font-size: 6px; /* Rounded from 16px / 2.65 */
+        font-weight: 400; /* Rounded from 400 / 2.65 */
+        line-height: 8px; /* Rounded from 21.6px / 2.65 */
+        letter-spacing: 0.0075em; /* Rounded from 0.02em / 2.65 */
+        text-align: left;
+      }
+
+      .text_list {
+        padding-left: 13px; /* Rounded from 36px / 2.65 */
+      }
+
+      .subtitle2 {
+        font-family: Inter;
+        font-size: 6px; /* Rounded from 16px / 2.65 */
+        font-weight: 600; /* Rounded from 600 / 2.65 */
+        line-height: 8px; /* Rounded from 22px / 2.65 */
+        letter-spacing: 0.0075em; /* Rounded from 0.02em / 2.65 */
+        text-align: left;
+        margin-bottom: 6px; /* Rounded from 16px / 2.65 */
+      }
+
+      .container2 .big_text {
+        font-family: "syne-v16-latin-600ttf", Helvetica, Arial, Lucida,
+          sans-serif;
+        font-size: 9px; /* Rounded from 24px / 2.65 */
+        font-weight: 600; /* Rounded from 600 / 2.65 */
+        line-height: 11px; /* Rounded from 31px / 2.65 */
+        letter-spacing: 0em;
+        text-align: left;
+        margin-bottom: 10px; /* Rounded from 26px / 2.65 */
+      }
+
+      .container3 {
+        background: rgba(255, 255, 255, 0.6);
+        width: 358px; /* Rounded from 942px / 2.65 */
+        height: 389px; /* Rounded from 1024.59px / 2.65 */
+        padding: 18px; /* Rounded from 48px / 2.65 */
+        border-radius: 15px; /* Rounded from 40px / 2.65 */
+        position: absolute;
+        top: 65px; /* Rounded from 171.41px / 2.65 */
+        left: 744px; /* Rounded from 1963px / 2.65 */
+        display: flex;
+        flex-direction: column;
+      }
+
+      .container3 .column1 {
+        display: flex;
+        justify-content: flex-start;
+        flex-direction: column;
+        width: 45%; /* Rounded from 45% */
+      }
+
+      .container3 .column2 {
+        display: flex;
+        justify-content: flex-start;
+        flex-direction: column;
+        width: 45%; /* Rounded from 45% */
+      }
+
+      .container4 {
+        background: rgba(255, 255, 255, 0.6);
+        width: 363px; /* Rounded from 956px / 2.65 */
+        height: 273px; /* Rounded from 718px / 2.65 */
+        padding: 13px 18px; /* Rounded from 36px / 2.65 and 48px / 2.65 */
+        border-radius: 15px; /* Rounded from 40px / 2.65 */
+        position: absolute;
+        top: 516px; /* Rounded from 1359px / 2.65 */
+        left: 743px; /* Rounded from 1956px / 2.65 */
+        display: flex;
+        flex-direction: column;
+      }
+
+      .container4 .box_card {
+        width: 148px; /* Rounded from 390px / 2.65 */
+        height: 197px; /* Rounded from 520px / 2.65 */
+        border-radius: 9px; /* Rounded from 24px / 2.65 */
+        background: var(--White, #fff);
+        padding: 9px; /* Rounded from 24px / 2.65 */
+      }
+
+      .container4 .box_svg {
+        width: 30px; /* Rounded from 80px / 2.65 */
+        height: 30px; /* Rounded from 80px / 2.65 */
+        padding: 7px; /* Rounded from 20px / 2.65 */
+        background-color: #e5e5ff;
+        border-radius: 50%; /* Rounded from 50% */
+      }
+
+      .container4 .box_card {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .container4 .box_info_title {
+        font-family: "syne-v16-latin-600ttf", Helvetica, Arial, Lucida,
+          sans-serif;
+        font-size: 6px; /* Rounded from 16px / 2.65 */
+        line-height: 7px; /* Rounded from 18px / 2.65 */
+        letter-spacing: 0em;
+        text-align: left;
+        color: rgba(0, 0, 255, 1);
+      }
+
+      .container4 .box_info_text {
+        color: #000;
+        font-family: Inter;
+        font-size: 6px; /* Rounded from 16px / 2.65 */
+        font-style: normal;
+        font-weight: 400;
+        line-height: 135%; /* Rounded from 135% of 21.6px / 2.65 */
+        letter-spacing: 0.12px; /* Rounded from 0.32px / 2.65 */
+      }
+
+      .container4 .box_info_lable {
+        padding: 2px 5px; /* Rounded from 6px / 2.65 and 12px / 2.65 */
+        margin-top: 2px; /* Rounded from 6px / 2.65 */
+        margin-right: 3px; /* Rounded from 8px / 2.65 */
+        border-radius: 38px; /* Rounded from 100px / 2.65 */
+        background: var(--primary-cobalt-50, #e5e5ff);
+        backdrop-filter: blur(0.75px); /* Rounded from 2px / 2.65 */
+        color: var(--primary-cobalt-500, #00f);
+        font-family: Inter;
+        font-size: 4px; /* Rounded from 11px / 2.65 */
+        font-style: normal;
+        font-weight: 600;
+        line-height: 4px; /* Rounded from 100% of 11px / 2.65 */
+        letter-spacing: 0.17px; /* Rounded from 0.44px / 2.65 */
+        text-transform: uppercase;
+      }
+
+      .container4 .box_info_lable-container {
+        display: flex;
+        align-items: flex-start;
+        flex-wrap: wrap;
+      }
+
+      .container4 .box_text {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        width: 148px; /* Rounded from 390px / 2.65 */
+      }
+
+      .container4 .box_text_list ul {
+        list-style: none;
+        font-family: "syne-v16-latin-600ttf", Helvetica, Arial, Lucida,
+          sans-serif;
+        font-size: 8px; /* Rounded from 20px / 2.65 */
+        font-style: normal;
+        line-height: 9px; /* Rounded from 130% of 26px / 2.65 */
+      }
+
+      .container4 .box_text_title {
+        color: #000;
+        font-family: Inter;
+        font-size: 6px; /* Rounded from 16px / 2.65 */
+        font-style: normal;
+        font-weight: 400;
+        line-height: 135%; /* Rounded from 135% of 21.6px / 2.65 */
+        letter-spacing: 0.12px; /* Rounded from 0.32px / 2.65 */
+      }
+
+      .container5 {
+        width: 369px; /* Rounded from 962px / 2.65 */
+        height: 385px; /* Rounded from 1009px / 2.65 */
+        position: absolute;
+        top: 402px; /* Rounded from 1059px / 2.65 */
+        left: 350px; /* Rounded from 924px / 2.65 */
+        padding: 13px 18px; /* Rounded from 36px / 2.65 and 48px / 2.65 */
+        border-radius: 15px; /* Rounded from 40px / 2.65 */
+        background: rgba(255, 255, 255, 0.78);
+      }
+
+      .container5 img {
+        margin-bottom: 7px; /* Rounded from 18px / 2.65 */
+        width: 100%;
+      }
+
+      .container5 .columns {
+        list-style: none;
+        flex-wrap: wrap;
+      }
+
+      .container5 .columns li {
+        width: 148px; /* Rounded from 390px / 2.65 */
+        margin-top: 21px; /* Rounded from 56px / 2.65 */
+      }
+
+      .container6 {
+        width: 306px; /* Rounded from 802px / 2.65 */
+        height: 267px; /* Rounded from 700px / 2.65 */
+        position: absolute;
+        top: 526px; /* Rounded from 1383px / 2.65 */
+        left: 22px; /* Rounded from 59px / 2.65 */
+        padding: 18px; /* Rounded from 48px / 2.65 */
+        border-radius: 15px; /* Rounded from 40px / 2.65 */
+        background: rgba(255, 255, 255, 0.6);
+      }
+
+      .container6 .table-card {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .table-card-flex .subtitle2 {
+        border-top: 1px solid #000;
+        padding-top: 9px; /* Rounded from 24px / 2.65 */
+        color: #000;
+        font-family: "syne-v16-latin-600ttf", Helvetica, Arial, Lucida,
+          sans-serif;
+        font-size: 9px; /* Rounded from 24px / 2.65 */
+        font-style: normal;
+        font-weight: 600;
+        line-height: 12px; /* Rounded from 31.2px / 2.65 */
+        margin-bottom: 6px; /* Rounded from 16px / 2.65 */
+      }
+
+      .table-card-flex {
+        width: 177px; /* Rounded from 466px / 2.65 */
+        margin-bottom: 21px; /* Rounded from 56px / 2.65 */
+      }
+
+      #left-area ul,
+      .entry-content ul,
+      .et-l--body ul,
+      .et-l--footer ul,
+      .et-l--header ul {
+        list-style-type: disc;
+        padding: 0 0 9px 0.38em; /* Rounded from 23px / 2.65 and 1em / 2.65 */
+        line-height: 10px; /* Rounded from 26px / 2.65 */
+      }
+
+      .card3-container {
+        list-style-type: none;
+        padding: 0;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      .ellipse {
+        width: 30px; /* 80px / 2.65 = 30.188679245 */
+        height: 30px; /* 80px / 2.65 = 30.188679245 */
+        flex-shrink: 0;
+        background-color: rgba(0, 0, 255, 0.1);
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .icon {
+        width: 15px; /* 40px / 2.65 = 15.094339623 */
+        height: 15px; /* 40px / 2.65 = 15.094339623 */
+        flex-shrink: 0;
+      }
+      .card_svg .icon {
+        width: 10px; /* 40px / 2.65 = 15.094339623 */
+        height: 10px; /* 40px / 2.65 = 15.094339623 */
+      }
+      .table-card-flex:last-child {
+        margin-bottom: 0px;
+      }
+    </style>
+<div id="poster-background">
+      <div class="poster_title">
+        <img src="http://newhiid.local/wp-content/uploads/2023/10/Group-2298.png" alt="logo" />
+        <h2>
+          Meine <br />
+          Identität
+        </h2>
+      </div>
+      <div class="container1">
+        <h1 class="card_title">Stützbasis</h1>
+        <span class="absolute_number">1</span>
+         <ul class="card-container">
+          <div>
+            <li class="card">
+              <div class="card_svg">
+                <svg class="icon" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M1 20V17.2C1 16.6333 1.14583 16.1125 1.4375 15.6375C1.72917 15.1625 2.11667 14.8 2.6 14.55C3.63333 14.0333 4.68333 13.6458 5.75 13.3875C6.81667 13.1292 7.9 13 9 13C10.1 13 11.1833 13.1292 12.25 13.3875C13.3167 13.6458 14.3667 14.0333 15.4 14.55C15.8833 14.8 16.2708 15.1625 16.5625 15.6375C16.8542 16.1125 17 16.6333 17 17.2V20H1ZM19 20V17C19 16.2667 18.7958 15.5625 18.3875 14.8875C17.9792 14.2125 17.4 13.6333 16.65 13.15C17.5 13.25 18.3 13.4208 19.05 13.6625C19.8 13.9042 20.5 14.2 21.15 14.55C21.75 14.8833 22.2083 15.2542 22.525 15.6625C22.8417 16.0708 23 16.5167 23 17V20H19ZM9 12C7.9 12 6.95833 11.6083 6.175 10.825C5.39167 10.0417 5 9.1 5 8C5 6.9 5.39167 5.95833 6.175 5.175C6.95833 4.39167 7.9 4 9 4C10.1 4 11.0417 4.39167 11.825 5.175C12.6083 5.95833 13 6.9 13 8C13 9.1 12.6083 10.0417 11.825 10.825C11.0417 11.6083 10.1 12 9 12ZM19 8C19 9.1 18.6083 10.0417 17.825 10.825C17.0417 11.6083 16.1 12 15 12C14.8167 12 14.5833 11.9792 14.3 11.9375C14.0167 11.8958 13.7833 11.85 13.6 11.8C14.05 11.2667 14.3958 10.675 14.6375 10.025C14.8792 9.375 15 8.7 15 8C15 7.3 14.8792 6.625 14.6375 5.975C14.3958 5.325 14.05 4.73333 13.6 4.2C13.8333 4.11667 14.0667 4.0625 14.3 4.0375C14.5333 4.0125 14.7667 4 15 4C16.1 4 17.0417 4.39167 17.825 5.175C18.6083 5.95833 19 6.9 19 8ZM3 18H15V17.2C15 17.0167 14.9542 16.85 14.8625 16.7C14.7708 16.55 14.65 16.4333 14.5 16.35C13.6 15.9 12.6917 15.5625 11.775 15.3375C10.8583 15.1125 9.93333 15 9 15C8.06667 15 7.14167 15.1125 6.225 15.3375C5.30833 15.5625 4.4 15.9 3.5 16.35C3.35 16.4333 3.22917 16.55 3.1375 16.7C3.04583 16.85 3 17.0167 3 17.2V18ZM9 10C9.55 10 10.0208 9.80417 10.4125 9.4125C10.8042 9.02083 11 8.55 11 8C11 7.45 10.8042 6.97917 10.4125 6.5875C10.0208 6.19583 9.55 6 9 6C8.45 6 7.97917 6.19583 7.5875 6.5875C7.19583 6.97917 7 7.45 7 8C7 8.55 7.19583 9.02083 7.5875 9.4125C7.97917 9.80417 8.45 10 9 10Z"
+                    fill="#0000FF"
+                  />
+                </svg>
+              </div>
+              <div class="card_details">
+                <span class="detail_title">Menschen</span>
+                <span class="detail_description">Julia · Heike</span>
+              </div>
+            </li>
+            <li class="card">
+              <div class="card_svg">
+                <svg class="icon" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M12 22C10.6167 22 9.31667 21.7375 8.1 21.2125C6.88333 20.6875 5.825 19.975 4.925 19.075C4.025 18.175 3.3125 17.1167 2.7875 15.9C2.2625 14.6833 2 13.3833 2 12C2 10.6167 2.2625 9.31667 2.7875 8.1C3.3125 6.88333 4.025 5.825 4.925 4.925C5.825 4.025 6.88333 3.3125 8.1 2.7875C9.31667 2.2625 10.6167 2 12 2C13.3833 2 14.6833 2.2625 15.9 2.7875C17.1167 3.3125 18.175 4.025 19.075 4.925C19.975 5.825 20.6875 6.88333 21.2125 8.1C21.7375 9.31667 22 10.6167 22 12C22 13.3833 21.7375 14.6833 21.2125 15.9C20.6875 17.1167 19.975 18.175 19.075 19.075C18.175 19.975 17.1167 20.6875 15.9 21.2125C14.6833 21.7375 13.3833 22 12 22ZM11 19.95V18C10.45 18 9.97917 17.8042 9.5875 17.4125C9.19583 17.0208 9 16.55 9 16V15L4.2 10.2C4.15 10.5 4.10417 10.8 4.0625 11.1C4.02083 11.4 4 11.7 4 12C4 14.0167 4.6625 15.7833 5.9875 17.3C7.3125 18.8167 8.98333 19.7 11 19.95ZM17.9 17.4C18.2333 17.0333 18.5333 16.6375 18.8 16.2125C19.0667 15.7875 19.2875 15.3458 19.4625 14.8875C19.6375 14.4292 19.7708 13.9583 19.8625 13.475C19.9542 12.9917 20 12.5 20 12C20 10.3667 19.5458 8.875 18.6375 7.525C17.7292 6.175 16.5167 5.2 15 4.6V5C15 5.55 14.8042 6.02083 14.4125 6.4125C14.0208 6.80417 13.55 7 13 7H11V9C11 9.28333 10.9042 9.52083 10.7125 9.7125C10.5208 9.90417 10.2833 10 10 10H8V12H14C14.2833 12 14.5208 12.0958 14.7125 12.2875C14.9042 12.4792 15 12.7167 15 13V16H16C16.4333 16 16.825 16.1292 17.175 16.3875C17.525 16.6458 17.7667 16.9833 17.9 17.4Z"
+                    fill="#0000FF"
+                  />
+                </svg>
+              </div>
+              <div class="card_details">
+                <span class="detail_title">Gegenstände</span>
+                <span class="detail_description"
+                  >Festplatte - alle Bilder drauf · Laptop</span
+                >
+              </div>
+            </li>
+          </div>
+          <div>
+            <li class="card">
+              <div class="card_svg">
+                <svg class="icon" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M4.72676 20C3.72676 20 2.87259 19.6417 2.16426 18.925C1.45592 18.2083 1.08509 17.3417 1.05176 16.325C1.05176 16.175 1.06009 16.025 1.07676 15.875C1.09342 15.725 1.11842 15.575 1.15176 15.425L3.25176 7.025C3.48509 6.125 3.96009 5.39583 4.67676 4.8375C5.39342 4.27917 6.21009 4 7.12676 4L16.8768 4C17.7934 4 18.6101 4.27917 19.3268 4.8375C20.0434 5.39583 20.5184 6.125 20.7518 7.025L22.8518 15.425C22.8851 15.575 22.9143 15.7292 22.9393 15.8875C22.9643 16.0458 22.9768 16.2 22.9768 16.35C22.9768 17.3667 22.6143 18.2292 21.8893 18.9375C21.1643 19.6458 20.2934 20 19.2768 20C18.5768 20 17.9268 19.8167 17.3268 19.45C16.7268 19.0833 16.2768 18.5833 15.9768 17.95L15.2768 16.5C15.1934 16.3333 15.0684 16.2083 14.9018 16.125C14.7351 16.0417 14.5601 16 14.3768 16L9.62676 16C9.44343 16 9.26842 16.0417 9.10176 16.125C8.93509 16.2083 8.81009 16.3333 8.72676 16.5L8.02676 17.95C7.72676 18.5833 7.27676 19.0833 6.67676 19.45C6.07676 19.8167 5.42676 20 4.72676 20ZM4.80176 18C5.11842 18 5.40592 17.9167 5.66426 17.75C5.92259 17.5833 6.11842 17.3583 6.25176 17.075L6.95176 15.65C7.20176 15.1333 7.56843 14.7292 8.05176 14.4375C8.53509 14.1458 9.06009 14 9.62676 14L14.3768 14C14.9434 14 15.4684 14.15 15.9518 14.45C16.4351 14.75 16.8101 15.15 17.0768 15.65L17.7768 17.075C17.9101 17.3583 18.1059 17.5833 18.3643 17.75C18.6226 17.9167 18.9101 18 19.2268 18C19.6934 18 20.0934 17.8458 20.4268 17.5375C20.7601 17.2292 20.9351 16.8417 20.9518 16.375C20.9518 16.3917 20.9351 16.2333 20.9018 15.9L18.8018 7.525C18.6851 7.075 18.4518 6.70833 18.1018 6.425C17.7518 6.14167 17.3434 6 16.8768 6L7.12676 6C6.66009 6 6.24759 6.14167 5.88926 6.425C5.53092 6.70833 5.30176 7.075 5.20176 7.525L3.10176 15.9C3.06842 16 3.05176 16.15 3.05176 16.35C3.05176 16.8167 3.22259 17.2083 3.56426 17.525C3.90592 17.8417 4.31842 18 4.80176 18ZM13.5018 11C13.7851 11 14.0226 10.9042 14.2143 10.7125C14.4059 10.5208 14.5018 10.2833 14.5018 10C14.5018 9.71667 14.4059 9.47917 14.2143 9.2875C14.0226 9.09583 13.7851 9 13.5018 9C13.2184 9 12.9809 9.09583 12.7893 9.2875C12.5976 9.47917 12.5018 9.71667 12.5018 10C12.5018 10.2833 12.5976 10.5208 12.7893 10.7125C12.9809 10.9042 13.2184 11 13.5018 11ZM15.5018 9C15.7851 9 16.0226 8.90417 16.2143 8.7125C16.4059 8.52083 16.5018 8.28333 16.5018 8C16.5018 7.71667 16.4059 7.47917 16.2143 7.2875C16.0226 7.09583 15.7851 7 15.5018 7C15.2184 7 14.9809 7.09583 14.7893 7.2875C14.5976 7.47917 14.5018 7.71667 14.5018 8C14.5018 8.28333 14.5976 8.52083 14.7893 8.7125C14.9809 8.90417 15.2184 9 15.5018 9ZM15.5018 13C15.7851 13 16.0226 12.9042 16.2143 12.7125C16.4059 12.5208 16.5018 12.2833 16.5018 12C16.5018 11.7167 16.4059 11.4792 16.2143 11.2875C16.0226 11.0958 15.7851 11 15.5018 11C15.2184 11 14.9809 11.0958 14.7893 11.2875C14.5976 11.4792 14.5018 11.7167 14.5018 12C14.5018 12.2833 14.5976 12.5208 14.7893 12.7125C14.9809 12.9042 15.2184 13 15.5018 13ZM17.5018 11C17.7851 11 18.0226 10.9042 18.2143 10.7125C18.4059 10.5208 18.5018 10.2833 18.5018 10C18.5018 9.71667 18.4059 9.47917 18.2143 9.2875C18.0226 9.09583 17.7851 9 17.5018 9C17.2184 9 16.9809 9.09583 16.7893 9.2875C16.5976 9.47917 16.5018 9.71667 16.5018 10C16.5018 10.2833 16.5976 10.5208 16.7893 10.7125C16.9809 10.9042 17.2184 11 17.5018 11ZM8.50176 12.5C8.71843 12.5 8.89759 12.4292 9.03926 12.2875C9.18093 12.1458 9.25176 11.9667 9.25176 11.75L9.25176 10.75L10.2518 10.75C10.4684 10.75 10.6476 10.6792 10.7893 10.5375C10.9309 10.3958 11.0018 10.2167 11.0018 10C11.0018 9.78333 10.9309 9.60417 10.7893 9.4625C10.6476 9.32083 10.4684 9.25 10.2518 9.25L9.25176 9.25L9.25176 8.25C9.25176 8.03333 9.18093 7.85417 9.03926 7.7125C8.89759 7.57083 8.71843 7.5 8.50176 7.5C8.28509 7.5 8.10593 7.57083 7.96426 7.7125C7.82259 7.85417 7.75176 8.03333 7.75176 8.25L7.75176 9.25L6.75176 9.25C6.53509 9.25 6.35593 9.32083 6.21426 9.4625C6.07259 9.60417 6.00176 9.78333 6.00176 10C6.00176 10.2167 6.07259 10.3958 6.21426 10.5375C6.35593 10.6792 6.53509 10.75 6.75176 10.75L7.75176 10.75L7.75176 11.75C7.75176 11.9667 7.82259 12.1458 7.96426 12.2875C8.10593 12.4292 8.28509 12.5 8.50176 12.5Z"
+                    fill="#0000FF"
+                  />
+                </svg>
+              </div>
+              <div class="card_details">
+                <span class="detail_title">Orte</span>
+                <span class="detail_description">Strände · Heimat</span>
+              </div>
+            </li>
+            <li class="card">
+              <div class="card_svg">
+                <svg class="icon" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M12.277 15.525C13.4436 15.525 14.4353 15.15 15.252 14.4C16.0686 13.65 16.477 12.7417 16.477 11.675C16.477 10.725 16.1728 9.92083 15.5645 9.2625C14.9561 8.60417 14.2186 8.275 13.352 8.275C12.5686 8.275 11.9061 8.525 11.3645 9.025C10.8228 9.525 10.552 10.1417 10.552 10.875C10.552 11.1917 10.6145 11.5 10.7395 11.8C10.8645 12.1 11.0436 12.375 11.277 12.625L12.702 11.2C12.652 11.1667 12.6145 11.125 12.5895 11.075C12.5645 11.025 12.552 10.9667 12.552 10.9C12.552 10.7167 12.627 10.5708 12.777 10.4625C12.927 10.3542 13.1186 10.3 13.352 10.3C13.6853 10.3 13.9603 10.4375 14.177 10.7125C14.3936 10.9875 14.502 11.3167 14.502 11.7C14.502 12.2167 14.2895 12.6542 13.8645 13.0125C13.4395 13.3708 12.9186 13.55 12.302 13.55C11.5186 13.55 10.8561 13.2333 10.3145 12.6C9.77279 11.9667 9.50195 11.1917 9.50195 10.275C9.50195 9.79167 9.59362 9.32917 9.77695 8.8875C9.96029 8.44583 10.2186 8.05833 10.552 7.725L9.12695 6.3C8.59362 6.81667 8.18529 7.41667 7.90195 8.1C7.61862 8.78333 7.47695 9.5 7.47695 10.25C7.47695 11.7167 7.94362 12.9625 8.87695 13.9875C9.81029 15.0125 10.9436 15.525 12.277 15.525ZM6.00195 22L6.00195 17.7C5.05195 16.8333 4.31445 15.8208 3.78945 14.6625C3.26445 13.5042 3.00195 12.2833 3.00195 11C3.00195 8.5 3.87695 6.375 5.62695 4.625C7.37695 2.875 9.50195 2 12.002 2C14.0853 2 15.9311 2.6125 17.5395 3.8375C19.1478 5.0625 20.1936 6.65833 20.677 8.625L21.977 13.75C22.0603 14.0667 22.002 14.3542 21.802 14.6125C21.602 14.8708 21.3353 15 21.002 15L19.002 15L19.002 18C19.002 18.55 18.8061 19.0208 18.4145 19.4125C18.0228 19.8042 17.552 20 17.002 20L15.002 20L15.002 22L13.002 22L13.002 18L17.002 18L17.002 13L19.702 13L18.752 9.125C18.3686 7.60833 17.552 6.375 16.302 5.425C15.052 4.475 13.6186 4 12.002 4C10.0686 4 8.41862 4.675 7.05195 6.025C5.68529 7.375 5.00195 9.01667 5.00195 10.95C5.00195 11.95 5.20612 12.9 5.61445 13.8C6.02279 14.7 6.60195 15.5 7.35195 16.2L8.00195 16.8L8.00195 22L6.00195 22Z"
+                    fill="#0000FF"
+                  />
+                </svg>
+              </div>
+              <div class="card_details">
+                <span class="detail_title">Organisationen</span>
+                <span class="detail_description">Tennisverein · Meetup</span>
+              </div>
+            </li>
+            <li class="card">
+              <div class="card_svg">
+                <svg class="icon" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M7 21L7 19L11 19L11 15.9C10.1833 15.7167 9.45417 15.3708 8.8125 14.8625C8.17083 14.3542 7.7 13.7167 7.4 12.95C6.15 12.8 5.10417 12.2542 4.2625 11.3125C3.42083 10.3708 3 9.26667 3 8L3 7C3 6.45 3.19583 5.97917 3.5875 5.5875C3.97917 5.19583 4.45 5 5 5L7 5L7 3L17 3L17 5L19 5C19.55 5 20.0208 5.19583 20.4125 5.5875C20.8042 5.97917 21 6.45 21 7L21 8C21 9.26667 20.5792 10.3708 19.7375 11.3125C18.8958 12.2542 17.85 12.8 16.6 12.95C16.3 13.7167 15.8292 14.3542 15.1875 14.8625C14.5458 15.3708 13.8167 15.7167 13 15.9L13 19L17 19L17 21L7 21ZM7 10.8L7 7L5 7L5 8C5 8.63333 5.18333 9.20417 5.55 9.7125C5.91667 10.2208 6.4 10.5833 7 10.8ZM12 14C12.8333 14 13.5417 13.7083 14.125 13.125C14.7083 12.5417 15 11.8333 15 11L15 5L9 5L9 11C9 11.8333 9.29167 12.5417 9.875 13.125C10.4583 13.7083 11.1667 14 12 14ZM17 10.8C17.6 10.5833 18.0833 10.2208 18.45 9.7125C18.8167 9.20417 19 8.63333 19 8L19 7L17 7L17 10.8Z"
+                    fill="#0000FF"
+                  />
+                </svg>
+              </div>
+              <div class="card_details">
+                <span class="detail_title">Ideen</span>
+                <span class="detail_description">Malerei · Nähen</span>
+              </div>
+            </li>
+          </div>
+        </ul>
+        <div class="card3-container">
+          <div class="card">
+            <span class="title"
+              >Das gibt dir Sicherheit, wenn du unsicher bist:
+            </span>
+            <p class="description">
+                  [frm-field-value field_id=7205 user_id=current]<br/> 
+                  [frm-field-value field_id=7196 user_id=current]<br/> 
+              
+            </p>
+          </div>
+          <div class="card">
+            <span class="title"
+              >Das gibt dir Energie, wenn du ausgelaugt bist:</span
+            >
+            <p class="description">
+                  [frm-field-value field_id=7202 user_id=current]<br/> 
+                  [frm-field-value field_id=7199 user_id=current]<br/> 
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="container2">
+        <span class="absolute_number">2</span>
+        <h1 class="poster_title1">Antreibemuster</h1>
+        <div class="columns">
+          <div class="column1">
+            <div class="block">
+              <div>
+                <div class="subtitle">Stärkster Antreiber</div>
+                <div class="big_text">“Mach es allen recht!”</div>
+              </div>
+              <div>
+                <div class="subtitle">Zweitstärkester Antreiber</div>
+                <div class="big_text">“Beeil dich!”</div>
+              </div>
+            </div>
+
+            <div class="block">
+              <div class="subtitle2">
+                So hat dich dein Antreiber bislang unterstützt:
+              </div>
+              <p class="text">
+                Konflikte offen ansprechen, Konflikte mit entferntere Personen
+                bedacht ansprechen, meine Rolle in meiner Familie, gemeinsame
+                Aktivitäten und Geschenke in meiner Familie
+              </p>
+            </div>
+            <div>
+              <div class="subtitle2">
+                Wenn dein Antreiber dich zu stark beeinflusst, kannst du hiermit
+                gegensteuern:
+              </div>
+              <ul class="text text_list">
+                <li>
+                  Ich darf nein sagen und bin auch dann zufrieden, wenn andere
+                  es nicht mit mir sind.
+                </li>
+                <li>Ich darf eigene Wünsche, Gefühle und Bedürfnisse haben.</li>
+                <li>Ich darf mich anderen anvertrauen und Wünsche äußern.</li>
+                <li>Ich darf eine eigene Meinung zum Thema haben.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="column2">
+            <div class="subtitle2">
+              Das steckt hinter deinem stärksten Antreiber “Mach es allen
+              recht!”
+            </div>
+            <p class="text">
+       Mit diesem inneren Antreiber bist du liebenswürdig und freundlich
+              zu deinen Mitmenschen - und das fast immer. Du kannst dich 1A in
+              andere Menschen hineinfühlen und erspürst sofort die Stimmung in
+              der Gruppe. Bei der Teamarbeit sorgst du für Harmonie. Wenn es den
+              anderen gut geht und du dafür gesorgt hast, dann bist du in deinem
+              Element und fühlst dich gut. Du selbst als Person bist eher
+              zweitrangig. Was die Anderen möchten, darüber denkst du viel nach.
+              Die eigenen Bedürfnisse werden nach hinten gestellt und kommen oft
+              zu kurz. „Nein“ sagen fällt dir äußerst schwer. Du willst, dass
+              deine Mitmenschen auch auf dich Rücksicht nehmen, obwohl sie nicht
+              wissen, was du willst, da du dies nicht äußerst. Loyalität,
+              Selbstlosigkeit, Bescheidenheit, Aufopferung sind dein täglich
+              Brot. Wenn es beim Arbeiten stressig wird, fällt es dir schwerer
+              dich auf die eigentliche Sache zu konzentrieren. Du machst dir
+              mehr Sorgen um die anderen. Du stimmst deinen Kolleginnen und
+              Kollegen schnell zu - ohne die Inhalte zu prüfen - hauptsache
+              alles ist harmonisch. Wenn du Kritik äußerst, benennst du erst
+              etwas Positives und dann das Negative. Ja und Kritik zu dir selbst
+              nimmst du ganz gerne mal persönlich.            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="container3">
+        <span class="absolute_number">3</span>
+        <h1 class="poster_title1">Fremdbild</h1>
+        <div class="columns">
+          <div class="column1">
+            <div class="subtitle2">
+              Vulputate hac scelerisque ac lacus arcu dignissim non dictum
+              vestibulum morbi id?
+            </div>
+            <p class="text">
+              Ihre analytischen Fähigkeiten in jeglicher Hinsicht.Ihre
+              Neugierde.Ihren Drang regelmäßig Sport zu treiben.wenn es um
+              Ästhetik geht, wie bspw. Klamotten oder Einrichtungen (Möbel
+              etc.)wenn es um Feedback zu mir selbst geht
+              Offenheit/Extrovertierte Seite Anni fällt es total leicht, offen
+              und positiv auf unbekannte Personen zuzugehen, sei es in
+              belanglosen Alltagssituationen oder beim Kennenlernen von neuen
+              Leuten, bspw. im privaten Rahmen. Sie denkt gar nicht drüber nach,
+              macht einfach und wirkt dabei total sympathisch, weil sie super
+              viel lächelt und extrem freundlich agiert. Anni weiß auch
+              Leistungen extrem zu schätzen und nimmt sich die Zeit, Menschen
+              aktiv positives Feedback zu geben und zu loben. Ein Aspekt der ihr
+              dabei hilft ist, dass sie Situationen immer analysiert und ihr
+              dadurch besondere Leistungen sehr schnell bewusst
+              werden.FürsorgeAnni macht anderen gerne eine Freude und macht sich
+              viele Gedanken darüber, wie ihr dies gelingen kann. Sie sorgt sich
+              um all ihre Mitmenschen, freut sich mit ihnen und unterstützt
+              proaktiv durch noch so kleine Gesten, wenn Herausforderungen und
+              Prüfungen anstehen. Ann ist am glücklichsten, wenn sie im Flow
+              ist, was Ernährung und Sport angeht, etwas Produktives schafft am
+              Tag und vorallem mit ihren Lieblingsmenschen zusammen ist und das
+              Leben genießen kann, mit guten Gesprächen und Aktivitäten.
+            </p>
+          </div>
+          <div class="column2">
+            <div class="subtitle2">
+              Vulputate hac scelerisque ac lacus arcu dignissim non dictum
+              vestibulum morbi id?
+            </div>
+            <p class="text">
+              Die offene und kontaktfreudige Art auf Menschen
+              zuzugehenDurchhaltevermögen und DisziplinInteresse für neue
+              DingePersönliche WeiterentwicklungAlle schönen Dinge die das Leben
+              schöner machen und Genuss sind: Urlaub, BücherGemeinsame Reflexion
+              von schwierigen SituationenHilfsbereitschaftImmer wenn ihr die
+              Möglichkeit besteht ist sie eine Stütze für michInteresseFür
+              Menschen, für Dinge und alles um sie herum. Man fühlt sich immer
+              gesehen!Umgeben von Familie und FreundenWenn sie mit (neuen)
+              Menschen in Kontakt treten und sich austauschen kannWenn sie neue
+              Dinge ausprobieren kann (spaßige oder persönliche
+              Weiterentwicklung)Gemeinsam Dinge erlebenGerechtigkeit, gerechtes
+              Miteinander Das es ihren Liebsten gut geht und sie zu
+              unterstützenGemeinsam tolle Momente miteinander verbringenIhre
+              Erwartungen an sich selbst nicht so hoch setzten .
+            </p>
+            <div class="subtitle2">
+              Vulputate hac scelerisque ac lacus arcu dignissim non dictum
+              vestibulum morbi id?
+            </div>
+            <p class="text">
+              Die offene und kontaktfreudige Art auf Menschen
+              zuzugehenDurchhaltevermögen und DisziplinInteresse für neue
+              DingePersönliche WeiterentwicklungAlle schönen Dinge die das Leben
+              schöner machen und Genuss sind: Urlaub, BücherGemeinsame Reflexion
+              von schwierigen SituationenHilfsbereitschaftImmer wenn ihr die
+              Möglichkeit besteht ist sie eine Stütze für michInteresseFür
+              Menschen, für Dinge und alles um sie herum. Man fühlt sich immer
+              gesehen!Umgeben von.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="container4">
+        <span class="absolute_number">4</span>
+        <h1 class="poster_title1">Kerntyp</h1>
+        <div class="columns">
+          <div class="box_card">
+            <div class="ellipse">
+              <svg
+                class="icon"
+
+                viewBox="0 0 40 40"
+                fill="none"
+              >
+                <path
+                  d="M26.0002 17.9719C26.6483 17.9719 27.1992 17.745 27.653 17.2913C28.1067 16.8376 28.3335 16.2867 28.3335 15.6386C28.3335 14.9904 28.1067 14.4395 27.653 13.9858C27.1992 13.5321 26.6483 13.3052 26.0002 13.3052C25.352 13.3052 24.8011 13.5321 24.3474 13.9858C23.8937 14.4395 23.6668 14.9904 23.6668 15.6386C23.6668 16.2867 23.8937 16.8376 24.3474 17.2913C24.8011 17.745 25.352 17.9719 26.0002 17.9719ZM14.0002 17.9719C14.6483 17.9719 15.1992 17.745 15.6529 17.2913C16.1066 16.8376 16.3335 16.2867 16.3335 15.6386C16.3335 14.9904 16.1066 14.4395 15.6529 13.9858C15.1992 13.5321 14.6483 13.3052 14.0002 13.3052C13.352 13.3052 12.8011 13.5321 12.3474 13.9858C11.8937 14.4395 11.6668 14.9904 11.6668 15.6386C11.6668 16.2867 11.8937 16.8376 12.3474 17.2913C12.8011 17.745 13.352 17.9719 14.0002 17.9719ZM20.0002 29.1386C21.852 29.1386 23.5488 28.6316 25.0905 27.6177C26.6321 26.6038 27.7502 25.2404 28.4446 23.5275H26.0835C25.4539 24.6108 24.5997 25.4511 23.521 26.0483C22.4423 26.6455 21.2733 26.9441 20.014 26.9441C18.7548 26.9441 17.5812 26.6502 16.4932 26.0622C15.4052 25.4742 14.5557 24.6293 13.9446 23.5275H11.5557C12.2687 25.2404 13.3914 26.6038 14.9238 27.6177C16.4562 28.6316 18.1483 29.1386 20.0002 29.1386ZM20.0002 36.6663C17.6946 36.6663 15.5279 36.2288 13.5002 35.3538C11.4724 34.4788 9.7085 33.2913 8.2085 31.7913C6.7085 30.2913 5.521 28.5275 4.646 26.4997C3.771 24.4719 3.3335 22.3052 3.3335 19.9997C3.3335 17.6941 3.771 15.5275 4.646 13.4997C5.521 11.4719 6.7085 9.70801 8.2085 8.20801C9.7085 6.70801 11.4724 5.52051 13.5002 4.64551C15.5279 3.77051 17.6946 3.33301 20.0002 3.33301C22.3057 3.33301 24.4724 3.77051 26.5002 4.64551C28.5279 5.52051 30.2918 6.70801 31.7918 8.20801C33.2918 9.70801 34.4793 11.4719 35.3543 13.4997C36.2293 15.5275 36.6668 17.6941 36.6668 19.9997C36.6668 22.3052 36.2293 24.4719 35.3543 26.4997C34.4793 28.5275 33.2918 30.2913 31.7918 31.7913C30.2918 33.2913 28.5279 34.4788 26.5002 35.3538C24.4724 36.2288 22.3057 36.6663 20.0002 36.6663ZM20.0002 33.8886C23.8775 33.8886 27.1616 32.5431 29.8526 29.8521C32.5436 27.1611 33.8891 23.877 33.8891 19.9997C33.8891 16.1224 32.5436 12.8382 29.8526 10.1472C27.1616 7.45624 23.8775 6.11076 20.0002 6.11076C16.1229 6.11076 12.8387 7.45624 10.1477 10.1472C7.45673 12.8382 6.11125 16.1224 6.11125 19.9997C6.11125 23.877 7.45673 27.1611 10.1477 29.8521C12.8387 32.5431 16.1229 33.8886 20.0002 33.8886Z"
+                  fill="#0000FF"
+                />
+              </svg>
+            </div>
+            <div class="box_info">
+              <span class="box_info_title">Typ Konsult</span>
+              <p class="box_info_text">
+                Lorem ipsum dolor sit amet consectetur. Et viverra pretium sit
+                mattis arcu lacinia. Vulputate hac scelerisque ac lacus arcu.
+                Aliquet dignissim non dictum vestibulum morbi id. Suscipit et
+                lacinia sapien massa massa nunc.
+              </p>
+              <div class="box_info_lable-container">
+                <span class="box_info_lable">EXTROVERTIERT</span
+                ><span class="box_info_lable">WAHRNEHMEN</span>
+                <span class="box_info_lable">FÜHLEN</span
+                ><span class="box_info_lable">URTEILEN</span>
+              </div>
+            </div>
+          </div>
+          <div class="box_text">
+            <div>
+              <h3 class="box_text_title">Dein Ergebnis aus dem Big5 Test</h3>
+              <p class="box_info_text">
+                Lorem ipsum dolor sit amet consectetur. Et viverra pretium sit
+                mattis arcu lacinia. Vulputate hac scelerisque ac lacus arcu.
+                Aliquet dignissim non dictum vestibulum morbi id. Suscipit et
+                lacinia sapien massa massa nunc.
+              </p>
+            </div>
+            <div class="box_text_list">
+              <ul>
+                <li>5 - Neurotizismus</li>
+                <li>2 - Extraversion</li>
+                <li>4 - Offenheit für Erfahrungen</li>
+                <li>3 - Verträglichkeit</li>
+                <li>1 - Gewissenhaftigkeit</li>
+              </ul>
+            </div>
+            <div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container5">
+        <div class="container5_background">
+          <span class="absolute_number">5</span>
+          <h1 class="poster_title1">Panoramablick</h1>
+          <img src="http://newhiid.local/wp-content/uploads/2023/10/image-48.png" alt="" />
+          <div>
+            <ul class="columns">
+              <li>
+                <div class="subtitle2">
+                  Das beeinflusst dich besonders im negativen Sinne:
+                </div>
+                <p class="text">
+                  Konflikte offen ansprechen, Konflikte mit entferntere Personen
+                  bedacht ansprechen, meine Rolle in meiner Familie, gemeinsame
+                  Aktivitäten und Geschenke in meiner Familie
+                </p>
+              </li>
+              <li>
+                <div class="subtitle2">
+                  So kannst du einem Tiefpunkt vorbeugen:
+                </div>
+                <p class="text">
+                  Lorem ipsum dolor sit amet consectetur. Et viverra pretium sit
+                  mattis arcu lacinia. Vulputate hac scelerisque ac lacus arcu.
+                  Aliquet dignissim non dictum vestibulum morbi id. Suscipit et
+                  lacinia sapien massa massa nunc.
+                </p>
+              </li>
+              <li>
+                <div class="subtitle2">
+                  Das beeinflusst dich besonders im positiven Sinne:
+                </div>
+                <p class="text">
+                  Lorem ipsum dolor sit amet consectetur. Et viverra pretium sit
+                  mattis arcu lacinia. Vulputate hac scelerisque ac lacus arcu.
+                </p>
+              </li>
+              <li>
+                <div class="subtitle2">
+                  Das hilft dir, um Positives zu erleben:
+                </div>
+                <p class="text">
+                  Lorem ipsum dolor sit amet consectetur. Et viverra pretium sit
+                  mattis arcu lacinia. Vulputate hac scelerisque ac lacus arcu.
+                  Lorem ipsum dolor sit amet consectetur. Et viverra pretium sit
+                  mattis arcu lacinia. Vulputate hac scelerisque ac lacus arcu.
+                  Aliquet dignissim non dictum vestibulum morbi id. Suscipit et
+                  lacinia sapien massa massa nunc.
+                </p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="container6">
+        <div class="container5_background">
+          <span class="absolute_number">6</span>
+          <h1 class="poster_title1">Wertefokus</h1>
+          <div class="table-card">
+            <div class="table-card-flex">
+              <div class="subtitle2">[frm-field-value field_id=3249 user_id=current] </div>
+              <p class="text">
+                  [frm-field-value field_id=2483 user_id=current] 
+              </p>
+            </div>
+
+            <div class="table-card-flex">
+              <div class="subtitle2">[frm-field-value field_id=3251 user_id=current] </div>
+              <p class="text">
+                [frm-field-value field_id=2507 user_id=current] 
+              </p>
+            </div>
+
+            <div class="table-card-flex">
+              <div class="subtitle2">[frm-field-value field_id=3250 user_id=current] </div>
+              <p class="text">
+[frm-field-value field_id=2512 user_id=current] 
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
